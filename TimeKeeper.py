@@ -12,3 +12,11 @@ class TimeKeeper:
 
 
 test_time_keeper = TimeKeeper()
+print(test_time_keeper)
+
+# self._ == protected
+# self.__ == private
+
+
+#New classes inherited from Thread
+#run method override

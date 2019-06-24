@@ -1,6 +1,16 @@
-import psutil
 import threading
 import time
+import logging
+
+try:
+    import psutil
+    HAS_PSUTIL = True
+except ImportError:
+    HAS_PSUTIL = False
+
+logger = logging.getLogger('doyouevencode')
+#st 
+
 
 process_names = ["pycharm.sh", "idea.sh"]
 
@@ -10,13 +20,18 @@ def check_if_process_running():
     running = list(filter(lambda item_name: item_name in processes, process_names))
     print(running)
 
-
+#main
 class ProcessChecker(threading.Thread):
     def __init__(self):
-        threading.Thread.__init__(self)
-        self.is_ide_open = False
-        check_if_process_running()
-        time.sleep(10)
+        if not HAS_PSUTIL:
+            logger.warning("Please install psutil: pip install psutil")
+        else:
+            threading.Thread.__init__(self)
+            self.is_ide_open = False
+            check_if_process_running()
+            # time.sleep(10)
+            #threading.timer
+            #use TImer, not sleep
 
 
 class CodeTimer(threading.Thread):

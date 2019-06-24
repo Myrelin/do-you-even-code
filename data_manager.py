@@ -1,21 +1,7 @@
 import psycopg2
-
 import connection
 from datetime import datetime
 
-
-# @connection.connection_handler
-# def add_question(cursor, question):
-#     question['submission_time'] = datetime.now()
-#     question['vote_number'] = 0
-#     question['view_number'] = 0
-#     cursor.execute("""INSERT INTO question (submission_time, view_number, vote_number, title, message, user_id)
-#         VALUES(%s, %s, %s, %s, %s, %s)""", (
-#         question['submission_time'], question['view_number'], question['vote_number'], question['title'],
-#         question['message'], question['user_id']))
-#     cursor.execute("SELECT * FROM question")
-#     result = cursor.fetchall()
-#     return result
 
 @connection.connection_handler
 def setup_database(cursor):
@@ -27,12 +13,25 @@ def setup_database(cursor):
         date DATE,
         start_time INT,
         finish_time INT,
-        time_spent INT,
         language varchar(255),
-        session_closed BIT default 0
+        session_closed BIT default 0::bit
         );
         """
     )
+
+
+@connection.connection_handler
+def get_all_sessions(cursor):
+    try:
+        cursor.execute(
+            """
+            SELECT * from ides;
+            """
+        )
+        return cursor.fetchall()
+    except psycopg2.errors.UndefinedTable:
+        setup_database()
+
 
 @connection.connection_handler
 def add_coding_session(cursor, ide_name, start_time):
@@ -48,8 +47,18 @@ def add_coding_session(cursor, ide_name, start_time):
     except psycopg2.IntegrityError:
         return False
 
-# def finish_coding_session(cursor, ):
+
+@connection.connection_handler
+def finish_coding_session(cursor, start_time, finish_time):
+    try:
+        cursor.execute(
+            """
+            UPDATE answer SET session_closed = 1, finish_time = ${finish_time}s
+            WHERE start_time = ${start_time}s;
+            """, {start_time: "start_time", finish_time: "finish_time"}
+        )
+    except psycopg2.DatabaseError:
+        return False
 
 
-
-setup_database()
+get_all_sessions()

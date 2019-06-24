@@ -2,24 +2,20 @@ import psutil
 import threading
 import time
 
+process_names = ["pycharm.sh", "idea.sh"]
 
-def check_if_process_running(process_name):
-    for proc in psutil.process_iter():
-        try:
-            if process_name.lower() in proc.name().lower():
-                print("Process {} is running".format(process_name))
-                return True
-        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-            pass
-    print("Process {} is not running".format(process_name))
-    return False
+
+def check_if_process_running():
+    processes = map(lambda item: item.name(), psutil.process_iter())
+    running = list(filter(lambda item_name: item_name in processes, process_names))
+    print(running)
 
 
 class ProcessChecker(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self.is_ide_open = False
-        check_if_process_running("idea.sh")
+        check_if_process_running()
         time.sleep(10)
 
 
@@ -33,16 +29,19 @@ class CodeTimer(threading.Thread):
         self.code_timer()
 
     def code_timer(self):
-        if not self.process_checker.is_ide_open and check_if_process_running("idea.sh"):
+        if not self.process_checker.is_ide_open and check_if_process_running():
             self.start_time = time.time()
-            print(self.start_time)
+            print("This is the start time! {}".format(self.start_time))
             self.process_checker.is_ide_open = True
-        elif self.process_checker.is_ide_open and not check_if_process_running("idea.sh"):
+            return self.start_time
+
+        elif self.process_checker.is_ide_open and not check_if_process_running():
             self.stop_time = time.time()
-            print(self.stop_time)
+            print("This is the stop time! {}".format(self.stop_time))
             self.process_checker.is_ide_open = False
-            self.total_time = self.stop_time - self.start_time
-            print("THIS IS THE TOTAL TIMESIE {}".format(self.total_time))
+            if self.start_time != 0 and self.stop_time != 0:
+                self.total_time = self.stop_time - self.start_time
+                print("THIS IS THE TOTAL TIMESIE {}".format(self.total_time))
 
 
 def main():
@@ -51,7 +50,6 @@ def main():
         code_timekeeper = CodeTimer(process_checker)
 #        process_checker.start()
         code_timekeeper.start()
-        print(code_timekeeper.total_time)
 
 
 if __name__ == '__main__':

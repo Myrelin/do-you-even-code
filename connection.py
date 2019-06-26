@@ -24,6 +24,7 @@ def get_connection_string():
     else:
         raise KeyError('Some necessary environment variable(s) are not defined')
 
+
 def open_database():
     try:
         connection_string = get_connection_string()

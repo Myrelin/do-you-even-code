@@ -10,6 +10,7 @@ def setup_database(cursor):
             CREATE TABLE IDEs (
         ID SERIAL PRIMARY KEY,
         ide_name varchar(255),
+        process_id varchar(255),
         date DATE,
         start_time INT,
         finish_time INT,
@@ -21,11 +22,12 @@ def setup_database(cursor):
 
 
 @connection.connection_handler
-def get_all_sessions(cursor):
+def get_recent_sessions(cursor):
     try:
         cursor.execute(
             """
-            SELECT * from ides;
+            SELECT * from ides
+            LIMIT 10;
             """
         )
         return cursor.fetchall()

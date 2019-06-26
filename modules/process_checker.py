@@ -17,7 +17,6 @@ process_names = ["pycharm.sh", "idea.sh"]
 def check_if_process_running():
     running_processes = map(lambda item:item.name(), psutil.process_iter())
     searched_processes = list(set(process_names).intersection(running_processes))
-    print(searched_processes)
     return searched_processes
 
 
@@ -31,7 +30,7 @@ def get_process_id_by_name():
                     list_of_process_objects.append(process_info)
                     #check db entry by pid and date
                     #if no match, insert new entry
-                    
+
             except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
                 pass
     print(list_of_process_objects)
@@ -45,13 +44,3 @@ class ProcessChecker(threading.Thread):
             threading.Thread.__init__(self)
             self.running_processes = check_if_process_running()
             time.sleep(5)
-
-
-def main():
-    while True:
-        test = ProcessChecker()
-        test.run()
-        get_process_id_by_name()
-
-if __name__ == '__main__':
-    main()

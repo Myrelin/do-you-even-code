@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ae9145d-4032-460d-97e5-77fdf6c8a4a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/do_you_even_code_tool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/process_checker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/runtime_tracker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/do_you_even_code_tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/do_you_even_code_tool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/process_checker.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/process_checker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +15,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/do_you_even_code$process_checker.coverage" NAME="process_checker Coverage Results" MODIFIED="1561548328492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />
     <SUITE FILE_PATH="coverage/do_you_even_code$TimeKeeper__1_.coverage" NAME="TimeKeeper (1) Coverage Results" MODIFIED="1560336147645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/do_you_even_code$do_you_even_code_tool.coverage" NAME="do_you_even_code_tool Coverage Results" MODIFIED="1561536072929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/do_you_even_code$do_you_even_code_tool.coverage" NAME="do_you_even_code_tool Coverage Results" MODIFIED="1561573367559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/do_you_even_code$ProcessCheckerObject.coverage" NAME="ProcessCheckerObject Coverage Results" MODIFIED="1561530446791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/do_you_even_code$orm_connection.coverage" NAME="orm_connection Coverage Results" MODIFIED="1561545965133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/do_you_even_code$data_manager.coverage" NAME="data_manager Coverage Results" MODIFIED="1561369845436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -89,11 +88,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/process_checker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="181">
+              <caret line="18" column="81" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -102,8 +101,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/do_you_even_code_tool.py">
+        <entry file="file://$PROJECT_DIR$/connection.py">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/do_you_even_code_tool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -141,8 +149,8 @@
         <option value="$PROJECT_DIR$/modules/process_timer.py" />
         <option value="$PROJECT_DIR$/orm_connection.py" />
         <option value="$PROJECT_DIR$/connection.py" />
-        <option value="$PROJECT_DIR$/do_you_even_code_tool.py" />
         <option value="$PROJECT_DIR$/modules/process_checker.py" />
+        <option value="$PROJECT_DIR$/do_you_even_code_tool.py" />
       </list>
     </option>
   </component>
@@ -202,7 +210,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.process_checker">
+  <component name="RunManager" selected="Python.do_you_even_code_tool">
     <configuration name="TimeKeeper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="do-you-even-code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -326,10 +334,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.do_you_even_code_tool" />
         <item itemvalue="Python.process_checker" />
         <item itemvalue="Python.orm_connection" />
         <item itemvalue="Python.process_timer" />
-        <item itemvalue="Python.do_you_even_code_tool" />
         <item itemvalue="Python.TimeKeeper" />
       </list>
     </recent_temporary>
@@ -346,12 +354,12 @@
       <updated>1560324835989</updated>
       <workItem from="1560324837147" duration="29344000" />
       <workItem from="1561029541751" duration="13009000" />
-      <workItem from="1561410715423" duration="16979000" />
+      <workItem from="1561410715423" duration="18683000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59332000" />
+    <option name="totallyTimeSpent" value="61036000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="0" width="1932" height="1038" extended-state="6" />
@@ -362,7 +370,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32912844" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19954129" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19839449" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39908257" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -520,9 +528,6 @@
     <entry file="file://$PROJECT_DIR$/modules/runtime_tracker.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/connection.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file:///usr/local/lib/python3.6/dist-packages/sqlalchemy/engine/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="479">
@@ -530,16 +535,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/do_you_even_code_tool.py">
+    <entry file="file://$PROJECT_DIR$/connection.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/process_checker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        <state relative-caret-position="181">
+          <caret line="18" column="81" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/do_you_even_code_tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
         </state>
       </provider>
     </entry>

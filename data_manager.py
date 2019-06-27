@@ -14,7 +14,7 @@ def setup_database(cursor):
         language varchar(255),
         date DATE,
         start_time INT,
-        finish_time INT,
+        last_modified INT,
         total_time varchar(255),
         session_closed BOOLEAN DEFAULT FALSE 
         );
@@ -56,9 +56,9 @@ def add_coding_session(cursor, name, proc_id, start_time):
     try:
         cursor.execute(
             """
-            INSERT INTO ides (ide_name, process_id, date, start_time) 
-            VALUES (%s, %s, %s, %s)
-            """, (name, proc_id, date, start_time)
+            INSERT INTO ides (ide_name, process_id, date, start_time, last_modified) 
+            VALUES (%s, %s, %s, %s, %s)
+            """, (name, proc_id, date, start_time, start_time)
         )
         return True
     except psycopg2.errors.UndefinedTable:
@@ -66,16 +66,17 @@ def add_coding_session(cursor, name, proc_id, start_time):
 
 
 @connection.connection_handler
-def finish_coding_session(cursor, pid):
+def update_last_modified_time(cursor, pid, last_modified):
     try:
         cursor.execute(
             """
-            UPDATE ides SET session_closed = True
-            WHERE process_id = {};
-            """.format(pid)
+            UPDATE ides
+            SET last_modified = {}
+            WHERE process_id = {}
+            """.format(last_modified, pid)
         )
-    except psycopg2.DatabaseError:
-        return False
+    except psycopg2.IntegrityError:
+        pass
 
 
 @connection.connection_handler

@@ -28,12 +28,14 @@ def get_process_id_by_name():
                 process_info = proc.as_dict(attrs=['pid', 'name', 'create_time'])
                 if process_name.lower() in process_info['name'].lower():
                     list_of_process_objects.append(process_info)
+
                     #check db entry by pid and date
                     #if no match, insert new entry
 
             except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
                 pass
     print(list_of_process_objects)
+    return list_of_process_objects
 
 
 class ProcessChecker(threading.Thread):

@@ -14,7 +14,7 @@ def setup_database(cursor):
         language varchar(255),
         date DATE,
         start_time INT,
-        finish_time INT,
+        last_modified INT,
         total_time varchar(255),
         session_closed BOOLEAN DEFAULT FALSE 
         );
@@ -56,7 +56,7 @@ def add_coding_session(cursor, name, proc_id, start_time):
     try:
         cursor.execute(
             """
-            INSERT INTO ides (ide_name, process_id, date, start_time) 
+            INSERT INTO ides (ide_name, process_id, date, start_time, last_modified) 
             VALUES (%s, %s, %s, %s)
             """, (name, proc_id, date, start_time)
         )

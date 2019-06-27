@@ -18,9 +18,11 @@
       <ObjectId>44400</ObjectId>
       <StateNumber>4337</StateNumber>
       <Owner>myrelin</Owner>
-      <IntrospectionStateNumber>4415</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4456</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
+      <Relations>sequence|table|44480|44482|1
+</Relations>
     </database>
     <database id="5" parent="1" name="myrelin">
       <ObjectId>44399</ObjectId>
@@ -120,7 +122,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>351</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>4416</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4457</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -180,5 +182,88 @@
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
+    <sequence id="29" parent="21" name="ides_id_seq">
+      <ObjectId>44480</ObjectId>
+      <Owner>myrelin</Owner>
+      <StateNumber>4427</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="30" parent="21" name="ides">
+      <ObjectId>44482</ObjectId>
+      <Owner>myrelin</Owner>
+      <StateNumber>4427</StateNumber>
+    </table>
+    <column id="31" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4427</StateNumber>
+      <DefaultExpression>nextval(&apos;ides_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="32" parent="30" name="ide_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>4427</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="33" parent="30" name="process_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>4427</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="34" parent="30" name="language">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>4427</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="35" parent="30" name="date">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <StateNumber>4427</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="36" parent="30" name="start_time">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>4427</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="37" parent="30" name="finish_time">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>4427</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="38" parent="30" name="total_time">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>4427</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="39" parent="30" name="session_closed">
+      <Position>9</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>4427</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="40" parent="30" name="ides_pkey">
+      <ObjectId>44490</ObjectId>
+      <StateNumber>4427</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="41" parent="30" name="ides_pkey">
+      <ObjectId>44491</ObjectId>
+      <StateNumber>4427</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>ides_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

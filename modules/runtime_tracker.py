@@ -7,6 +7,7 @@ class ProcessRunTimeTracker:
         self.finish_time = 0
         self.total_time = 0
         self.is_session_closed = False
+        time.time
 
     def __repr__(self):
         return str(self.__dict__)
@@ -28,10 +29,3 @@ class ProcessRunTimeTracker:
             minutes = total_time // 60
             seconds = total_time % 60
             self.total_time = "0:{}:{}".format(minutes, seconds)
-
-
-test = ProcessRunTimeTracker("testing", 1, 12345)
-test.end_session(23456)
-test.set_session_total_time()
-print(test)
-

@@ -15,8 +15,8 @@ def setup_database(cursor):
         date DATE,
         start_time INT,
         finish_time INT,
-        total_time INT,
-        session_closed BIT default 0::bit
+        total_time varchar(255),
+        session_closed BOOLEAN DEFAULT FALSE 
         );
         """
     )

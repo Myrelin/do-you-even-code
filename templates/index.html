@@ -21,6 +21,7 @@
                     <th> date </th>
                     <th> start_time</th>
                     <th> last_modified</th>
+                    <th> Session closed</th>
                 </tr>
 
             </thead>
@@ -32,6 +33,7 @@
                     <td>{{ session["date"] }}</td>
                     <td>{{ session["start_time"] }}</td>
                     <td>{{ session["last_modified"]}}</td>
+                    <td>{{ session["session_closed"]}}</td>
                 </tr>
             {% endfor %}
 

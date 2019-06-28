@@ -57,7 +57,7 @@ def update_last_modified_time(cursor, pid, last_modified):
             """
             UPDATE ides
             SET last_modified = {}
-            WHERE process_id = {}
+            WHERE process_id = {} AND session_closed = FALSE
             """.format(last_modified, pid)
         )
     except psycopg2.IntegrityError:
@@ -88,5 +88,11 @@ def get_open_sessions(cursor):
         )
         return cursor.fetchall()
 
-test = get_recent_sessions()
-print(test)
+@connection.connection_handler
+def close_session(cursor, pid):
+    cursor.execute(
+        """
+        UPDATE ides SET session_closed = TRUE
+        WHERE process_id = {}
+        """.format(pid)
+    )

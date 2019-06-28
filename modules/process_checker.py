@@ -1,5 +1,5 @@
 import logging
-import threading
+import data_manager
 import time
 
 try:
@@ -36,6 +36,26 @@ class ProcessChecker:
                 except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
                     pass
         return list_of_process_objects
+
+    def update_sessions(self):
+        for proc in self.list_of_running_process_objects:
+            print(proc)
+            if data_manager.get_session_by_pid(proc['pid']) is None:
+                data_manager.add_coding_session(proc['name'],
+                                                proc['pid'],
+                                                proc['create_time'])
+
+                print("new session added to db!")
+            else:
+                data_manager.update_last_modified_time(proc['pid'], time.time())
+                print(data_manager.get_session_by_pid(proc['pid']))
+
+    def close_sessions(self):
+        open_sessions = data_manager.get_open_sessions()
+        for session in open_sessions:
+            if not psutil.pid_exists(session['process_id']):
+                print(session['process_id'])
+                data_manager.close_session(session['process_id'])
 
     def __repr__(self):
         return str(self.__dict__)

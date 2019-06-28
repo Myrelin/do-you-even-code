@@ -27,22 +27,7 @@ def get_recent_sessions(cursor):
     try:
         cursor.execute(
             """
-            SELECT * from ides
-            LIMIT 10;
-            """
-        )
-        return cursor.fetchall()
-    except psycopg2.errors.UndefinedTable:
-        setup_database()
-
-
-@connection.connection_handler
-def get_open_sessions(cursor):
-    try:
-        cursor.execute(
-            """
-            SELECT process_id FROM ides
-            WHERE session_closed = FALSE;
+            SELECT * from ides;
             """
         )
         return cursor.fetchall()
@@ -102,3 +87,6 @@ def get_open_sessions(cursor):
             """
         )
         return cursor.fetchall()
+
+test = get_recent_sessions()
+print(test)

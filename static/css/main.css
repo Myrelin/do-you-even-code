@@ -1,0 +1,38 @@
+body {
+    background: black;
+    font-family: 'Montserrat';font-size: 22px;
+}
+
+.title {
+    color: white;
+}
+
+.intro {
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+}
+th {
+    background-color:darkmagenta;
+    Color:white;
+}
+th, td {
+    width:150px;
+    text-align:center;
+    border:1px solid black;
+    padding:5px
+
+}
+
+.bla {
+    padding:15px;
+}
+/*.geeks { */
+    /*border-right:hidden; */
+/*} */
+/*.gfg { */
+    /*border-collapse:separate; */
+    /*border-spacing:0 15px; */
+/*}*/

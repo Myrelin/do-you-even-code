@@ -16,9 +16,8 @@ def main():
         if not HAS_PROCESS_CHECKER:
             logger.warning('Please make sure the process_checker is in the modules directory!')
         else:
-            process_check = process_checker.ProcessChecker(process_names)
-            process_check.update_sessions()
-            process_check.close_sessions()
+            process_check = process_checker.ProcessChecker()
+            process_check.check()
             time.sleep(5)
 
 

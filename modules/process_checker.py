@@ -23,7 +23,7 @@ class ProcessChecker:
         if not HAS_PSUTIL:
             logger.warning("Please install psutil: pip install psutil")
         if not HAS_DATA_MANAGER:
-            logger.warning("Data manager missing for query handling missing!")
+            logger.warning("Data manager for query handling missing!")
         else:
             self.process_names = process_names
             time.sleep(3)

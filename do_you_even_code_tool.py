@@ -12,8 +12,13 @@ def main():
     all_modules = load_modules()
     while True:
         for module_name, import_path in all_modules.items():
-            getattr(import_path, module_name)().check()
-            time.sleep(5)
+            try:
+                module_instance = convert_filename_to_classname(module_name)
+                getattr(import_path, module_instance)().check()
+            except AttributeError:
+                logger.warning("No named attribute found for {}!".format(module_name))
+                import_path.check()
+        time.sleep(5)
 
 
 def load_modules():
@@ -22,9 +27,9 @@ def load_modules():
     for file_name in filenames:
         if "__" not in file_name:
             module_name = file_name.split(".")[0]
-            module_instance = convert_filename_to_classname(module_name)
+
             try:
-                imported_modules[module_instance] = importlib.import_module('modules.' + module_name)
+                imported_modules[module_name] = importlib.import_module('modules.' + module_name)
             except ModuleNotFoundError:
                 print("module not found for some fucking reason")
     sys.modules.update(imported_modules)

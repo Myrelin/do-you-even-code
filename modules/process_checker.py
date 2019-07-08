@@ -18,6 +18,10 @@ logger = logging.getLogger('doyouevencode')
 process_names = ["pycharm.sh", "idea.sh"]
 
 
+def check():
+    print("TESTING A THING")
+
+
 class ProcessChecker:
     def __init__(self):
         if not HAS_PSUTIL:

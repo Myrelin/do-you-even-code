@@ -3,6 +3,7 @@ import logging
 import sys
 import time
 import os
+import app
 
 logger = logging.getLogger('doyouevencode')
 process_names = ["pycharm.sh", "idea.sh"]
@@ -10,6 +11,7 @@ process_names = ["pycharm.sh", "idea.sh"]
 
 def main():
     all_modules = load_modules()
+    app.app.run(debug=True)
     while True:
         for module_name, import_path in all_modules.items():
             try:

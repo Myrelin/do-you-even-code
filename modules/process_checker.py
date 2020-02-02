@@ -15,7 +15,7 @@ except ImportError:
 
 
 logger = logging.getLogger('doyouevencode')
-process_names = ["pycharm.sh", "idea.sh"]
+process_names = ["pycharm.sh", "idea.sh", "eclipse"]
 
 
 def check():
